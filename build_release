@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# shellcheck build_release
-
 release_tag="$(git tag | tail -n 1)";
 origin="git@github.com:spoqa/spoqa-han-sans.git";
 master="master"
@@ -24,7 +22,7 @@ build_zip()
   cp -r "$release_dir" "$all_dir";
   cp LICENSE "$release_dir/";
 
-  cd "$release_base_dir";
+  cd "$release_base_dir" || exit;
   zip "$release_dir.zip" -r "$release_dirname" >> /dev/null;
   cd ..
   rm -rf "$release_dir";
@@ -54,9 +52,9 @@ build_zip "jp_subset" \
           "Subset/SpoqaHanSans_JP";
 
 echo "* release $release_all_name";
-cd "$release_base_dir";
+cd "$release_base_dir" || exit;
 zip "$release_all_name.zip" -r "$release_all_name" >> /dev/null;
 rm -rf "$release_all_name";
-cd ..;
+cd ..
 
 echo "release done.";
