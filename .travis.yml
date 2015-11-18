@@ -3,7 +3,7 @@ before_deploy:
   - ./build_release
 deploy:
   provider: releases
-  api_key: "e82c6f1b2bfb2dd4dbf416f08bd627fd61d28f33"
+  api_key: "f09012acd9b4f84649a18700573f8ecd60b3c13f"
   file:
     - release/SpoqaHanSans_all.zip
     - release/SpoqaHanSans_jp_subset.zip
